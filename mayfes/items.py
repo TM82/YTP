@@ -7,7 +7,6 @@
 
 import scrapy
 
-
 class MayfesItem(scrapy.Item):
     title = scrapy.Field()
     texts = scrapy.Field()

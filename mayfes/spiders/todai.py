@@ -12,12 +12,11 @@ class TodaiSpider(scrapy.Spider):
     next_path1 = '//*[@id="pg"]/a[11]/@href'
     next_path2 = '//*[@id="pg"]/a[10]/@href'
     search_list_path = '//*[@id="web"]/ol/li'
-    titles_path = '/a/b/text()'
-    texts_path = '/div/text()'
+    titles_path = 'a/text()'
+    texts_path = 'div/text()'
 
     def parse(self, response):
         search_responses = response.xpath(TodaiSpider.search_list_path)
-        print(len(search_responses))
         for search_response in search_responses:
             item = items.MayfesItem()
             item["title"] = [

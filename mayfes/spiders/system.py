@@ -11,19 +11,19 @@ class SystemSpider(scrapy.Spider):
 
     next_path1 = '//*[@id="pg"]/a[11]/@href'
     next_path2 = '//*[@id="pg"]/a[10]/@href'
-    # search_list_path = '//*[@id="web"]/ol/li'
-    titles_path = '//*[@id="web"]/ol/li/a/text()'
-    texts_path = '//*[@id="web"]/ol/li/div/text()'
+    search_list_path = '//*[@id="web"]/ol/li'
+    titles_path = 'a/text()'
+    texts_path = 'div/text()'
 
     def parse(self, response):
-        # search_responses = response.xpath(SystemSpider.search_list_path)
-        # for search_response in search_responses:
-        item = items.MayfesItem()
-        item["title"] = [
-            box.strip() for box in response.xpath(SystemSpider.titles_path).extract()]
-        item["texts"] = [
-            box.strip() for box in response.xpath(SystemSpider.texts_path).extract()]
-        yield item
+        search_responses = response.xpath(SystemSpider.search_list_path)
+        for search_response in search_responses:
+            item = items.MayfesItem()
+            item["title"] = [
+                box.strip() for box in search_response.xpath(SystemSpider.titles_path).extract()]
+            item["texts"] = [
+                box.strip() for box in search_response.xpath(SystemSpider.texts_path).extract()]
+            yield item
 
         # next_page = response.xpath(SystemSpider.next_path1).extract_first() or response.xpath(SystemSpider.next_path2).extract_first()
         # if next_page:

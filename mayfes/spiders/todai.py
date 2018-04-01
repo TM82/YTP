@@ -19,12 +19,12 @@ class TodaiSpider(scrapy.Spider):
         search_responses = response.xpath(TodaiSpider.search_list_path)
         print(len(search_responses))
         for search_response in search_responses:
-            todai = items.MayfesItem()
-            todai["title"] = [
+            item = items.MayfesItem()
+            item["title"] = [
                 box.strip() for box in search_response.xpath(TodaiSpider.titles_path).extract()]
-            todai["texts"] = [
+            item["texts"] = [
                 box.strip() for box in search_response.xpath(TodaiSpider.texts_path).extract()]
-            yield todai
+            yield item
 
         # next_page = response.xpath(TodaiSpider.next_path1).extract_first() or response.xpath(TodaiSpider.next_path2).extract_first()
         # if next_page:

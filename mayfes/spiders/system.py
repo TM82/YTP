@@ -16,16 +16,16 @@ class SystemSpider(scrapy.Spider):
     texts_path = '//*[@id="web"]/ol/li/div/text()'
 
     def parse(self, response):
-        # search_responses = response.xpath(TodaiSpider.search_list_path)
+        # search_responses = response.xpath(SystemSpider.search_list_path)
         # for search_response in search_responses:
-        todai = items.MayfesItem()
-        todai["title"] = [
+        item = items.MayfesItem()
+        item["title"] = [
             box.strip() for box in response.xpath(SystemSpider.titles_path).extract()]
-        todai["texts"] = [
+        item["texts"] = [
             box.strip() for box in response.xpath(SystemSpider.texts_path).extract()]
-        yield todai
+        yield item
 
-        # next_page = response.xpath(TodaiSpider.next_path1).extract_first() or response.xpath(TodaiSpider.next_path2).extract_first()
+        # next_page = response.xpath(SystemSpider.next_path1).extract_first() or response.xpath(SystemSpider.next_path2).extract_first()
         # if next_page:
         #     url = response.urljoin(next_page)
         #     yield scrapy.Request(url, callback=self.parse)

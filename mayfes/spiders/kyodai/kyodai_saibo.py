@@ -6,7 +6,7 @@ class KyodaiSaiboSpider(scrapy.Spider):
     allowed_domains = ["search.yahoo.co.jp"]
     start_urls = [
         "https://search.yahoo.co.jp/search?p='京都大学'+'細胞'&dups=1&b={0}".format(x)
-        for x in range(221,300,10)
+        for x in range(1,300,10)
     ]
 
     next_path1 = '//*[@id="pg"]/a[11]/@href'

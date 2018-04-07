@@ -15,8 +15,8 @@ class MeijiSecondSpider(scrapy.Spider):
         word = getattr(self, 'word', None)
         if word is not None:
             urls = [
-                "https://search.yahoo.co.jp/search?p=明治大学{0}&dups=1&b={1}".format(word, x)
-                for x in range(1,1000,10)
+                "https://search.yahoo.co.jp/search?p='明治大学'+'{0}'&dups=1&b={1}".format(word, x)
+                for x in range(1,300,10)
             ]
         for url in urls:
             yield scrapy.Request(url, self.parse)

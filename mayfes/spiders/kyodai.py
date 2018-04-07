@@ -1,5 +1,5 @@
 import scrapy
-from .. import items
+from mayfes import items
 
 class KyodaiSpider(scrapy.Spider):
     name = "kyodai"

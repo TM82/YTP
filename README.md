@@ -3,7 +3,7 @@
 ```sh
 git clone git@github.com:TM82/YTP.git
 cd YTP/
-git checkout <branch名> # ブランチ作成
+git checkout -b <branch名> # ブランチ作成
 ```
 
 ## データ収集の流れ

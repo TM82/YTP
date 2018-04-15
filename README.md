@@ -1,12 +1,19 @@
 # YTP
+## 導入
+```sh
+git clone git@github.com:TM82/YTP.git
+```
+
 ## データ収集の流れ
 1. 検索したい単語を決める
-2. query.shにその単語を入力する
-3. ```bash query.sh```
-4. 収集したjsonファイルをコミットして、全員で共有
-5. 収集したページから単語を抽出
-6. 頻度、TF-IDF値等を算出する
-7. 6を参考に1に戻る
+2. slackの \#pj_ytp_query で検索予定の単語を-checkする
+3. -checkの返却値をquery.shに入力する
+4. ```bash query.sh```
+5. slackの \#pj_ytp_query で検索予定の単語を-setする
+6. 収集したjsonファイルをコミットする
+7. 収集したページから単語を抽出
+8. 頻度、TF-IDF値等を算出する
+9. 6を参考に1に戻る
 
 ## 検索をする方法
 ```sh

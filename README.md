@@ -6,6 +6,14 @@ cd YTP/
 git checkout -b <branch名> # ブランチ作成
 ```
 
+## Pythonについて
+### 要件
+
+* Python3
+    - python2はダメかも
+* scrapy
+    - ```pip install scrapy```
+
 ## データ収集の流れ
 ### 7~9は三浦，熊田担当
 1. 検索したい単語を決める
@@ -21,7 +29,7 @@ git checkout -b <branch名> # ブランチ作成
 ## 4.検索をする方法
 ```sh
 cd YTP/mayfes/
-vim query.sh # TODO:検索したい単語を記入
+vim query.sh # TODO:検索したい単語を記入, 保存先のフォルダを変更
 bash query.sh
 ```
 

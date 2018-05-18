@@ -1,10 +1,10 @@
 import pandas as pd
 import numpy as np
 
-links = pd.read_csv('links5.csv',index_col=0).drop_duplicates(['from','to'])
+links = pd.read_csv('links5.csv',index_col=0)
 nodes = pd.read_csv('nodes5.csv',index_col=0)
-labels = pd.read_csv('labels5.csv',index_col=0)
-nodes = pd.merge(nodes,labels,on='index')
+# labels = pd.read_csv('labels10.csv',index_col=0)
+# nodes = pd.merge(nodes,labels,on='index')
 
 # while(True):
 print("Enter the query you want to search\n")
@@ -31,7 +31,7 @@ if len(node):
             if len(related_querys):
                 print("<<関係が予想される単語>>")
                 for related_query in related_querys:
-                    related_node = nodes[nodes['query']==next_query]
+                    related_node = nodes[nodes['query']==related_query]
                     print("{0}: ".format(related_query),end=' ')
                     print(nodes[nodes['index']==related_node['label'].values[0]]['query'].values[0])
                 print()
